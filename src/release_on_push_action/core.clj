@@ -81,6 +81,7 @@
   (inc (or n 0)))
 
 (defn semver-bump [version bump]
+  (printf "Current Version: " version)
   (let [[major minor patch] (map #(Integer/parseInt %) (str/split version #"\."))
         next-version (condp = bump
                        :major [(safe-inc major) 0 0]
